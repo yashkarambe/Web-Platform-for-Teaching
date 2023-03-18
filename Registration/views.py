@@ -4,8 +4,8 @@ from .models import log_in_registtration_student
 from .models import log_in_registtration_teacher
 from django.views.decorators.csrf import requires_csrf_token
 from django.contrib import messages   # for Django masseage show
-
-
+import numpy as np
+from django.contrib.auth  import authenticate,  login, logout
 
 
 
@@ -50,27 +50,26 @@ def login(request):
     user = request.POST.get('user_login')
     Email = request.POST.get('Email_login')
     password = request.POST.get('log_pass')
-    account_type = request.POST.get('account_type__log')
+    account_type = request.POST.get('account_type_log')
     login_data = {'User_name': user, 'Email': Email, 'password': password, 'account_type': account_type}
+    print(login_data)  #-->  for testing 
     
+    Data = []
     if account_type == "Student" :
-        Data = log_in_registtration_student.objects.values('User_name','Email' , 'password' ,'account_type')
-        loop = Data.len()     
+        Data.extend(log_in_registtration_student.objects.values('User_name','Email' , 'password' ,'account_type'))
+           
     if account_type == "Teacher" : 
-        Data = log_in_registtration_teacher.objects.values('User_name','Email' , 'password' ,'account_type')
-        loop = Data.len() 
-    i=0
-    while i < 0:   
-        try:
+        Data.extend(log_in_registtration_teacher.objects.values('User_name','Email' , 'password' ,'account_type'))
+    print(len(Data))
+    for i in range(len(Data)):  
             if Data[i] == login_data : 
-                i = i + 1
+                print(Data[i]) #--> for testing 
                 pass_match = True
-        except:
-            break
+                break
         
     if pass_match:
-        messages.success(request,'Wellcome to Educative {user}! ')
         if account_type == "Student" :
+            messages.success(request,f'login! Wellcome to Educative {user}.')
             return render(request , "Registration/home/index.html")    
            
         if account_type == "Teacher" :
@@ -79,3 +78,8 @@ def login(request):
     else:
         messages.error(request,"OOP's! Invalid password or User name")
         return render(request , 'Registration/index.html') 
+
+def logout_handeler(request):
+    logout(request)
+    messages.success(request , "Succcessfuly logout.")
+    return render(request , 'Registration/index.html')

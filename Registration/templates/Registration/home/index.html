@@ -160,10 +160,23 @@
             <a class="nav-link" href="#">Profile</a>
           </li>
         </ul>
-        <button class="btn btn-outline-warning" type="button"><b>logout</b></button>
+        <form action="/Registration/logout_handeler" method="post">
+          {% csrf_token %}
+          <button class="btn btn-outline-warning" type="submit" fdprocessedid="op7bv" >logout</button>
+        </form>
       </div>
     </div>
   </nav>
+
+
+  <!-- Show alart -->
+  {% for message in messages %}
+  <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+    <strong>{{ message.tags }}fully</strong> {{ message }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  {% endfor %}
+
 
   <div class="container d-flex align-self-center justify-content-center ">
     <div class="row gap-3 my-3">
@@ -217,6 +230,7 @@
         document.querySelector('.offcanvas-collapse').classList.toggle('open')
       })
     })()
+
 
   </script>
 </body>

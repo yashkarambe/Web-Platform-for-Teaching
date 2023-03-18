@@ -24,4 +24,6 @@ urlpatterns = [
     path('',views.index , name='index'),
     path('login_data',views.login_data , name='login_data'),
     path('login',views.login , name='login'),
+    path('logout_handeler',views.logout_handeler , name='logout_handeler'),
+    
 ]
