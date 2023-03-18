@@ -69,7 +69,7 @@ def login(request):
         
     if pass_match:
         if account_type == "Student" :
-            messages.success(request,f'login! Wellcome to Educative {user}.')
+            messages.success(request,f' Wellcome to Educative {user}.')
             return render(request , "Registration/home/index.html")    
            
         if account_type == "Teacher" :
@@ -81,5 +81,5 @@ def login(request):
 
 def logout_handeler(request):
     logout(request)
-    messages.success(request , "logout.")
+    messages.success(request , " logout Succcess.")
     return render(request , 'Registration/index.html')
