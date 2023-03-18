@@ -76,10 +76,10 @@ def login(request):
             # return None 
             pass
     else:
-        messages.error(request,"OOP's! Invalid password or User name")
+        messages.error(request,"OOP's! Invalid password or User name.")
         return render(request , 'Registration/index.html') 
 
 def logout_handeler(request):
     logout(request)
-    messages.success(request , "Succcessfuly logout.")
+    messages.success(request , "logout.")
     return render(request , 'Registration/index.html')
