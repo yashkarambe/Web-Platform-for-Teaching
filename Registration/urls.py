@@ -28,4 +28,8 @@ urlpatterns = [
     path('teacher',views.teacher,name='teacher'),
     path('quizes',views.quizes,name='quizes'),
     path('dashboard',views.dashboard,name='dashboard'),
+    path('lecture_authentication',views.lecture_authentication,name='lecture_authentication'),
+    path('thumnail_',views.thumnail_,name='thumnail_'),
+    path('lectur_Upload',views.lectur_Upload,name='lectur_Upload'),
+    
 ]

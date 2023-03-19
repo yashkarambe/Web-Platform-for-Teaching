@@ -27,7 +27,7 @@
     <div class="container">
         {%for message in messages %}
         <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
-            <strong>{{ message.tags }}fuly login!</strong> {{ message }}
+            <strong>login {{ message.tags }}!</strong> {{ message }}
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
         {% endfor %}
@@ -35,14 +35,14 @@
     {% endblock %}
     {% block body %} 
     <div class="container my-2">
-        <h5>Playlist info.</h5>
+        <h5>Authentication</h5>
         <hr>
-        <form class="row g-3 needs-validation" novalidate>
+        <form class="row g-3 needs-validation" novalidate action="/Registration/lecture_authentication" method="post">{% csrf_token %}
             <div class="col-md-4">
-                <label for="validationCustomUsername" class="form-label">Username</label>
+                <label for="user_aut" class="form-label">Username</label>
                 <div class="input-group has-validation">
                     <span class="input-group-text" id="inputGroupPrepend">@</span>
-                    <input type="text" class="form-control" id="validationCustomUsername"
+                    <input type="text" class="form-control" id="user_aut" name="user_aut"
                         aria-describedby="inputGroupPrepend" required>
                     <div class="invalid-feedback">
                         Please provide a username.
@@ -51,19 +51,22 @@
             </div>
 
             <div class="col-md-4">
-                <label for="validationCustom02" class="form-label">Email</label>
-                <input type="text" class="form-control" id="validationCustom02" required>
+                <label for="Email_aut" class="form-label">Email</label>
+                <input type="text" class="form-control" id="Email_aut" name="Email_aut" required>
                 <div class="valid-feedback">
                     Email required.
                 </div>
             </div>
 
-            <div class="col-md-6">
-                <label for="validationCustom03" class="form-label">Number of lecturs</label>
-                <input type="text" class="form-control" id="validationCustom03" required>
+
+            <div class="form-label col-md-6">
+                <label for="aut_pass">Password</label>
+                <input type="password" class="form-control" id="aut_pass" placeholder=" Password"
+                    fdprocessedid="ey9l7q" name="aut_pass" required>
                 <div class="invalid-feedback">
-                    Please provide no. of lectures.
+                    Please provide a valid password.
                 </div>
+
             </div>
 
             <div class="col-12">
@@ -78,19 +81,81 @@
                 </div>
             </div>
             <div class="col-12">
-                <a href="#Uplode Playlist"><button class="btn btn-secondary" type="submit">Next</button></a>
+                <a href="#Playlist"><button class="btn btn-secondary{{button}} " type="submit" onclick="scllor()">Next</button></a>
             </div>
         </form><br>
     </div>
+    
+    <!-- playlist descreption -->
+
+    <div class="container my-2">
+        <h5 id="Playlist">Playlist</h5>
+        <hr>
+        <form class="row g-3 needs-validation" novalidate action="/Registration/thumnail_" method="get">
+            {% csrf_token %}
+            <div class="col-md-4 col-sm-6">
+                <label for="Playlist_Name" class="form-label">Playlist Name</label>
+                <input type="text" class="form-control" id="Topic_name" name="Playlist_Name" required>
+                <div class="valid-feedback">
+                    Playlist name required.
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6">
+                <label for="Chapter_name" class="form-label">Chapter name</label>
+                <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="Chapter_name" name="Chapter_name"
+                        aria-describedby="inputGroupPrepend" required>
+                    <div class="invalid-feedback">
+                        Please provide a Chapter name.
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6">
+                <label for="Topic_name" class="form-label">Topic name</label>
+                <input type="text" class="form-control" id="Topic_name" required name="Topic_name">
+                <div class="valid-feedback">
+                    Topic name required.
+                </div>
+            </div>
+
+            <div class="mb-3 col-md-4 col-sm-6">
+                <label for="thumnail" class="form-label">Upload thumnail</label>
+                <input type="file" class="form-control" aria-label="file example" id="thumnail" name="thumnail" required>
+                <div class="invalid-feedback">Please Uplode thumnail.</div>
+            </div>
+            
+            <div class="col-md-4 col-sm-6">
+                <label for="Shor_Desc" class="form-label">Short Describe your playlist</label>
+                <input type="text" class="form-control" id="Shor_Desc" required name="Shor_Desc">
+                <div class="valid-feedback">
+                    Describe your playlist with 500 words.
+                </div>
+            </div>
+            
+            <div class="form-check mb-3 ">
+                <input type="checkbox" class="form-check-input" id="validationFormCheck1" required>
+                <label class="form-check-label" for="validationFormCheck1">Re-Check</label>
+                <div class="invalid-feedback">Check all option are correct.</div>
+            </div>
+            
+            <div class="col-12 ">
+                <a href="#Uplode_Playlist"><button class="btn btn-secondary {{button1}} " type="submit" onclick="scllor_to_playlist()" >Next</button></a>
+            </div>
+        </form><br>
+    </div>
+ 
+    <!-- playlist Upload  -->
 
     <div class="container ">
-        <h5 id="Uplode Playlist">Uplode Playlist</h5>
+        <h5 id="Uplode_Playlist">Uplode Playlist</h5>
         <hr>
-        <form class="needs-validation" novalidate>
-
+        <form class="needs-validation" novalidate action="/Registration/lectur_Upload" method="get" >
+            {% csrf_token %}
             <div class="mb-3">
-                <label for="validationTextarea" class="form-label">Chapter name</label>
-                <textarea class="form-control" id="validationTextarea" placeholder="Enter Chapter name"
+                <label for="Chapter_name" class="form-label">Chapter name</label>
+                <textarea class="form-control" id="Chapter_name" valaue="Chapter_name" placeholder="Enter Chapter name"
                     required></textarea>
                 <div class="invalid-feedback">
                     Please enter a Chapter name.
@@ -98,8 +163,8 @@
             </div>
 
             <div class="mb-3">
-                <label for="validationTextarea" class="form-label">Topic name</label>
-                <textarea class="form-control" id="validationTextarea" placeholder="Enter Topic name"
+                <label for="Topic_name" class="form-label">Topic name</label>
+                <textarea class="form-control" id="Topic_name" value="Topic_name" placeholder="Enter Topic name"
                     required></textarea>
                 <div class="invalid-feedback">
                     Please enter a topic name.
@@ -107,8 +172,8 @@
             </div>
 
             <div class="mb-3">
-                <label for="validationTextarea" class="form-label">Leactur title</label>
-                <textarea class="form-control" id="validationTextarea" placeholder="Enter Leactur title"
+                <label for="Leactur_title" class="form-label">Leactur title</label>
+                <textarea class="form-control" id="Leactur_title" placeholder="Enter Leactur title"  value="Leactur_title"
                     required></textarea>
                 <div class="invalid-feedback">
                     Please enter a lecture Title.
@@ -116,8 +181,8 @@
             </div>
 
             <div class="mb-3">
-                <label for="validationTextarea" class="form-label">Describe your leactur</label>
-                <textarea class="form-control" id="validationTextarea" placeholder="Required descreption"
+                <label for="Desc_leactur" class="form-label">Describe your leactur</label>
+                <textarea class="form-control" id="Desc_leactur" value="Desc_leactur" placeholder="Required descreption"
                     required></textarea>
                 <div class="invalid-feedback">
                     Please enter a description.
@@ -125,7 +190,8 @@
             </div>
 
             <div class="mb-3">
-                <input type="file" class="form-control" aria-label="file example" required>
+                <label for="Upload_leactur" class="form-label">Upload leactur</label>
+                <input type="file" class="form-control" aria-label="file example" id="Upload_leactur" value="Upload_leactur" required>
                 <div class="invalid-feedback">Please Uplode lecture.</div>
             </div>
 
@@ -136,7 +202,7 @@
             </div>
 
             <div class="mb-3">
-                <button class="btn btn-secondary" type="submit"> Uplode </button>
+                <button id="upload" class="btn btn-secondary {{button2}}" type="submit"> Uplode </button>
             </div>
         </form>
     </div>
@@ -170,6 +236,17 @@
     
     document.getElementById('Dashboard').onclick = function () {
         location.href = '/Registration/dashboard'
+    };
+
+    function scllor(){
+        document.getElementById('Playlist').scrollIntoView();
+        
+    };
+    function scllor_to_playlist(){
+        document.getElementById('Uplode_Playlist').scrollIntoView();
+       
+       
+        
     };
 </script>
     {% endblock %}

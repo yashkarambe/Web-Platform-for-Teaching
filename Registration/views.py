@@ -4,10 +4,10 @@ from .models import log_in_registtration_student
 from .models import log_in_registtration_teacher
 from django.views.decorators.csrf import requires_csrf_token
 from django.contrib import messages   # for Django masseage show
-import numpy as np
 from django.contrib.auth  import authenticate,  login, logout
-
-
+from .models import thumnail
+from datetime import date
+from .models import Playlist
 
 def index(request):
     # print('app running')
@@ -60,7 +60,7 @@ def login(request):
            
     if account_type == "Teacher" : 
         Data.extend(log_in_registtration_teacher.objects.values('User_name','Email' , 'password' ,'account_type'))
-    print(len(Data))
+    # print(len(Data))
     for i in range(len(Data)):  
             if Data[i] == login_data : 
                 print(Data[i]) #--> for testing 
@@ -85,8 +85,63 @@ def logout_handeler(request):
     return render(request , 'Registration/index.html')
 
 def teacher(request):
-    return render(request ,"Registration/teacher/teacher.html")
+    parm = { 'button2' : 'disabled','button1' : 'disabled' }
+    return render(request ,"Registration/teacher/teacher.html" , parm)
 def quizes(request):
     return render(request ,"Registration/teacher/quizes.html")
 def dashboard(request):
     return render(request ,"Registration/teacher/dashboard.html")
+
+@requires_csrf_token
+def lecture_authentication(request):
+        pass_match = False
+        
+        user = request.POST.get('user_aut')
+        Email = request.POST.get('Email_aut')
+        Password = request.POST.get('aut_pass')
+        
+        authorize = {'User_name': user, 'Email': Email, 'password': Password, 'account_type':'Teacher' }
+        print(authorize)
+        Data = []
+        Data.extend(log_in_registtration_teacher.objects.values('User_name','Email' , 'password' ,'account_type'))
+        
+        for i in range(len(Data)):  
+            if Data[i] == authorize :
+                print(i) 
+                pass_match = True
+                break
+        
+        if pass_match:
+            parm ={'button1' : 'active','button' : 'disabled' ,'button2' : 'disabled' }
+            return render(request , 'Registration/teacher/teacher.html' , parm)
+        
+        else:
+            parm ={'button2' : 'disabled','button1' : 'disabled'}
+            messages.error(request,"OOP's! Invalid password or User name.")
+            return render(request , 'Registration/teacher/teacher.html', parm) 
+        
+        
+def thumnail_(request):
+    post = thumnail()
+    post.playlist_name = request.GET.get('Playlist_Name')
+    post.Chapter_name = request.GET.get('Chapter_name')
+    post.Topic_name = request.GET.get('Topic_name')
+    post.Thumnail_image = request.GET.get('thumnail')
+    post.Short_Desc = request.GET.get('Shor_Desc')
+    post.pub_date = date.today()
+    post.save()
+    parm ={'button2' : 'active','button1' : 'disabled' ,'button' : 'disabled' }
+    return render(request ,'Registration/teacher/teacher.html', parm) 
+     
+     
+def lectur_Upload(request):
+    post = Playlist()
+    post.Chapter_name = request.GET.get('Chapter_name')
+    post.Topic_name = request.GET.get('Topic_name')
+    post.Leactur_title = request.GET.get('Leactur_title')
+    post.Desc_leactur = request.GET.get('Desc_leactur')
+    post.Upload_leactur = request.GET.get('Upload_leactur')
+    post.save()
+    parm ={'button2' : 'active','button1' : 'disabled' ,'button' : 'disabled' }
+    messages.success(request , "Uplode all remaining lecture with same chapter and topic name.")
+    return render(request , 'Registration/teacher/teacher.html', parm)

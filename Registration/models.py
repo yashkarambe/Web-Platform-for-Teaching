@@ -18,3 +18,26 @@ class log_in_registtration_teacher(models.Model):
     Email = models.EmailField(max_length=30)
     password = models.TextField(max_length=20)
     account_type = models.CharField(max_length = 10)
+    def __str__(self):
+        return self.User_name
+    
+class thumnail(models.Model):
+    product_id = models.AutoField
+    playlist_name = models.TextField(max_length=30)
+    Chapter_name = models.TextField(max_length=30)
+    Topic_name = models.TextField(max_length=30)
+    Thumnail_image = models.ImageField(upload_to="Registration/thumnail")
+    Short_Desc = models.TextField(max_length=500)
+    pub_date = models.DateField()
+    def __str__(self):
+        return self.playlist_name
+    
+class Playlist(models.Model):
+    Chapter_name = models.TextField(max_length=30) 
+    Topic_name = models.TextField(max_length=30) 
+    Leactur_title = models.TextField(max_length=30) 
+    Desc_leactur = models.TextField(max_length=30) 
+    leactur = models.FileField(upload_to='Registration/video')
+    def __str__(self):
+        return self.Leactur_title
+    
