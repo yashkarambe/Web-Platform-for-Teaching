@@ -1,0 +1,176 @@
+{% extends 'Registration/basic.html' %}
+{% block title %} - teacher {% endblock %}
+{% block navbar %}
+    <nav class=" container my-4">
+        <ul class="nav  nav-pills nav-fill gap-2 p-1 small bg-dark   rounded-5 shadow-sm" id="pillNav2" role="tablist"
+            style="--bs-nav-link-color: var(--bs-light-text); --bs-nav-pills-link-active-color: var(--bs-cyan-600); --bs-nav-pills-link-active-bg: var(--bs-light-bg-subtle);
+            --bs-nav-link-hover-color: var(--bs-light-bg-subtle);">
+
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active rounded-5" id="Leacture" data-bs-toggle="tab" type="button" role="tab"
+                    aria-selected="true">Leacture</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link  rounded-5" id="Quizes" data-bs-toggle="tab" type="button" role="tab"
+                    aria-selected="false">Quizes</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <!-- {% csrf_token %} -->
+                <button class="nav-link rounded-5" id="Dashboard" data-bs-toggle="tab" type="button" role="tab"
+                    aria-selected="false">Dashboard</button>
+            </li>
+        </ul>
+        </ul>
+    </nav>
+
+    <!-- alarts -->
+    <div class="container">
+        {%for message in messages %}
+        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+            <strong>{{ message.tags }}fuly login!</strong> {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor %}
+    </div>
+    {% endblock %}
+    {% block body %} 
+    <div class="container my-2">
+        <h5>Playlist info.</h5>
+        <hr>
+        <form class="row g-3 needs-validation" novalidate>
+            <div class="col-md-4">
+                <label for="validationCustomUsername" class="form-label">Username</label>
+                <div class="input-group has-validation">
+                    <span class="input-group-text" id="inputGroupPrepend">@</span>
+                    <input type="text" class="form-control" id="validationCustomUsername"
+                        aria-describedby="inputGroupPrepend" required>
+                    <div class="invalid-feedback">
+                        Please provide a username.
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <label for="validationCustom02" class="form-label">Email</label>
+                <input type="text" class="form-control" id="validationCustom02" required>
+                <div class="valid-feedback">
+                    Email required.
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <label for="validationCustom03" class="form-label">Number of lecturs</label>
+                <input type="text" class="form-control" id="validationCustom03" required>
+                <div class="invalid-feedback">
+                    Please provide no. of lectures.
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                    <label class="form-check-label" for="invalidCheck">
+                        Agree to terms and conditions
+                    </label>
+                    <div class="invalid-feedback">
+                        You must agree before submitting.
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <a href="#Uplode Playlist"><button class="btn btn-secondary" type="submit">Next</button></a>
+            </div>
+        </form><br>
+    </div>
+
+    <div class="container ">
+        <h5 id="Uplode Playlist">Uplode Playlist</h5>
+        <hr>
+        <form class="needs-validation" novalidate>
+
+            <div class="mb-3">
+                <label for="validationTextarea" class="form-label">Chapter name</label>
+                <textarea class="form-control" id="validationTextarea" placeholder="Enter Chapter name"
+                    required></textarea>
+                <div class="invalid-feedback">
+                    Please enter a Chapter name.
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="validationTextarea" class="form-label">Topic name</label>
+                <textarea class="form-control" id="validationTextarea" placeholder="Enter Topic name"
+                    required></textarea>
+                <div class="invalid-feedback">
+                    Please enter a topic name.
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="validationTextarea" class="form-label">Leactur title</label>
+                <textarea class="form-control" id="validationTextarea" placeholder="Enter Leactur title"
+                    required></textarea>
+                <div class="invalid-feedback">
+                    Please enter a lecture Title.
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="validationTextarea" class="form-label">Describe your leactur</label>
+                <textarea class="form-control" id="validationTextarea" placeholder="Required descreption"
+                    required></textarea>
+                <div class="invalid-feedback">
+                    Please enter a description.
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <input type="file" class="form-control" aria-label="file example" required>
+                <div class="invalid-feedback">Please Uplode lecture.</div>
+            </div>
+
+            <div class="form-check mb-3">
+                <input type="checkbox" class="form-check-input" id="validationFormCheck1" required>
+                <label class="form-check-label" for="validationFormCheck1">Clear</label>
+                <div class="invalid-feedback">Check all option are correct.</div>
+            </div>
+
+            <div class="mb-3">
+                <button class="btn btn-secondary" type="submit"> Uplode </button>
+            </div>
+        </form>
+    </div>
+    {% endblock %}
+    {% block js %}
+    <script>
+    (() => {
+        'use strict'
+        const forms = document.querySelectorAll('.needs-validation')
+    
+        // Loop over them and prevent submission
+        Array.from(forms).forEach(form => {
+            form.addEventListener('submit', event => {
+                if (!form.checkValidity()) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                }
+    
+                form.classList.add('was-validated')
+            }, false)
+        })
+    })()
+    
+    document.getElementById('Leacture').onclick = function () {
+        location.href = '/Registration/teacher'
+    };
+    
+    document.getElementById('Quizes').onclick = function () {
+        location.href = '/Registration/quizes'
+    };
+    
+    document.getElementById('Dashboard').onclick = function () {
+        location.href = '/Registration/dashboard'
+    };
+</script>
+    {% endblock %}
+    

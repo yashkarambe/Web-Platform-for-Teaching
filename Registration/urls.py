@@ -25,5 +25,7 @@ urlpatterns = [
     path('login_data',views.login_data , name='login_data'),
     path('login',views.login , name='login'),
     path('logout_handeler',views.logout_handeler , name='logout_handeler'),
-    
+    path('teacher',views.teacher,name='teacher'),
+    path('quizes',views.quizes,name='quizes'),
+    path('dashboard',views.dashboard,name='dashboard'),
 ]

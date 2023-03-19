@@ -1,0 +1,76 @@
+{% extends 'Registration/basic.html' %}
+{% block title %} - teacher {% endblock %}
+{% block navbar %}
+    <nav class=" container my-4">
+        <ul class="nav  nav-pills nav-fill gap-2 p-1 small bg-dark   rounded-5 shadow-sm" id="pillNav2" role="tablist"
+            style="--bs-nav-link-color: var(--bs-light-text); --bs-nav-pills-link-active-color: var(--bs-cyan-600); --bs-nav-pills-link-active-bg: var(--bs-light-bg-subtle);
+            --bs-nav-link-hover-color: var(--bs-light-bg-subtle);">
+
+            <li class="nav-item" role="presentation">
+                <button class="nav-link  rounded-5" id="Leacture" data-bs-toggle="tab" type="button" role="tab"
+                    aria-selected="true">Leacture</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link  rounded-5" id="Quizes" data-bs-toggle="tab" type="button" role="tab"
+                    aria-selected="false">Quizes</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active rounded-5" id="Dashboard" data-bs-toggle="tab" type="button" role="tab"
+                    aria-selected="false">Dashboard</button>
+            </li>
+        </ul>
+        </ul>
+    </nav>
+
+    <div class="container d-flex justify-content-center">
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src="/aluminas 1.jpeg" class="img-fluid rounded-start" alt="...">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                </div>
+              </div>
+            </div>
+        </div>
+    
+    </div>
+    
+    {% endblock %}
+    {% block js %}
+    <script>
+        (() => {
+            'use strict'
+            const forms = document.querySelectorAll('.needs-validation')
+        
+            // Loop over them and prevent submission
+            Array.from(forms).forEach(form => {
+                form.addEventListener('submit', event => {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+        
+                    form.classList.add('was-validated')
+                }, false)
+            })
+        })()
+        
+        document.getElementById('Leacture').onclick = function () {
+            location.href = '/Registration/teacher'
+        };
+        
+        document.getElementById('Quizes').onclick = function () {
+            location.href = '/Registration/quizes'
+        };
+        
+        document.getElementById('Dashboard').onclick = function () {
+            location.href = '/Registration/dashboard'
+        };
+    </script>
+        {% endblock %}
+        

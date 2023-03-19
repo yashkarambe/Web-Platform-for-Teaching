@@ -70,11 +70,11 @@ def login(request):
     if pass_match:
         if account_type == "Student" :
             messages.success(request,f' Wellcome to Educative {user}.')
-            return render(request , "Registration/home/index.html")    
+            return render(request , "Registration/student/index.html")    
            
         if account_type == "Teacher" :
-            # return None 
-            pass
+            messages.success(request ,f' Wellcom to Educative Respected {user}') 
+            return render(request , 'Registration/teacher/teacher.html')
     else:
         messages.error(request,"OOP's! Invalid password or User name.")
         return render(request , 'Registration/index.html') 
@@ -83,3 +83,10 @@ def logout_handeler(request):
     logout(request)
     messages.success(request , " logout Succcess.")
     return render(request , 'Registration/index.html')
+
+def teacher(request):
+    return render(request ,"Registration/teacher/teacher.html")
+def quizes(request):
+    return render(request ,"Registration/teacher/quizes.html")
+def dashboard(request):
+    return render(request ,"Registration/teacher/dashboard.html")
