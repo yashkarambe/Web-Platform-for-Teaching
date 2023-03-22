@@ -96,7 +96,7 @@
             <div class="col-md-4 col-sm-6">
                 <label for="Playlist_Name" class="form-label">Playlist Name</label>
                 <input type="text" class="form-control" id="Topic_name" name="Playlist_Name" required>
-                <div class="valid-feedback">
+                <div class="invalid-feedback">
                     Playlist name required.
                 </div>
             </div>
@@ -115,7 +115,7 @@
             <div class="col-md-4 col-sm-6">
                 <label for="Topic_name" class="form-label">Topic name</label>
                 <input type="text" class="form-control" id="Topic_name" required name="Topic_name">
-                <div class="valid-feedback">
+                <div class="invalid-feedback">
                     Topic name required.
                 </div>
             </div>
@@ -129,7 +129,7 @@
             <div class="col-md-4 col-sm-6">
                 <label for="Shor_Desc" class="form-label">Short Describe your playlist</label>
                 <input type="text" class="form-control" id="Shor_Desc" required name="Shor_Desc">
-                <div class="valid-feedback">
+                <div class="invalid-feedback">
                     Describe your playlist with 500 words.
                 </div>
             </div>
@@ -151,21 +151,22 @@
     <div class="container ">
         <h5 id="Uplode_Playlist">Uplode Playlist</h5>
         <hr>
-        <form class="needs-validation" novalidate action="/Registration/lectur_Upload" method="get" >
+        <form class="needs-validation" novalidate action="/Registration/lectur_Upload" method="post" >
             {% csrf_token %}
             <div class="mb-3">
-                <label for="Chapter_name" class="form-label">Chapter name</label>
-                <textarea class="form-control" id="Chapter_name" valaue="Chapter_name" placeholder="Enter Chapter name"
-                    required></textarea>
+                <label for="Chapter_name_playlist" class="form-label">Chapter name</label>
+                <input type="text" class="form-control" id="Chapter_name_playlist" name="Chapter_name_playlist" placeholder="Enter Chapter name"
+                    required>
                 <div class="invalid-feedback">
                     Please enter a Chapter name.
                 </div>
             </div>
+            
 
             <div class="mb-3">
-                <label for="Topic_name" class="form-label">Topic name</label>
-                <textarea class="form-control" id="Topic_name" value="Topic_name" placeholder="Enter Topic name"
-                    required></textarea>
+                <label for="Topic_name_playlist" class="form-label">Topic name</label>
+                <input type="text" class="form-control" id="Topic_name_playlist" name="Topic_name_playlist" placeholder="Enter Topic name"
+                    required>
                 <div class="invalid-feedback">
                     Please enter a topic name.
                 </div>
@@ -173,8 +174,8 @@
 
             <div class="mb-3">
                 <label for="Leactur_title" class="form-label">Leactur title</label>
-                <textarea class="form-control" id="Leactur_title" placeholder="Enter Leactur title"  value="Leactur_title"
-                    required></textarea>
+                <input type="text" class="form-control" id="Leactur_title" placeholder="Enter Leactur title"  name="Leactur_title"
+                    required>
                 <div class="invalid-feedback">
                     Please enter a lecture Title.
                 </div>
@@ -182,8 +183,8 @@
 
             <div class="mb-3">
                 <label for="Desc_leactur" class="form-label">Describe your leactur</label>
-                <textarea class="form-control" id="Desc_leactur" value="Desc_leactur" placeholder="Required descreption"
-                    required></textarea>
+                <input type="text" class="form-control" id="Desc_leactur" name="Desc_leactur" placeholder="Required descreption"
+                    required>
                 <div class="invalid-feedback">
                     Please enter a description.
                 </div>
@@ -191,13 +192,13 @@
 
             <div class="mb-3">
                 <label for="Upload_leactur" class="form-label">Upload leactur</label>
-                <input type="file" class="form-control" aria-label="file example" id="Upload_leactur" value="Upload_leactur" required>
+                <input type="file" class="form-control" aria-label="file example" id="Upload_leactur" name="Upload_leactur" required>
                 <div class="invalid-feedback">Please Uplode lecture.</div>
             </div>
 
             <div class="form-check mb-3">
-                <input type="checkbox" class="form-check-input" id="validationFormCheck1" required>
-                <label class="form-check-label" for="validationFormCheck1">Clear</label>
+                <input type="checkbox" class="form-check-input" id="validationFormCheck_playlist" required>
+                <label class="form-check-label" for="validationFormCheck_playlist">Clear</label>
                 <div class="invalid-feedback">Check all option are correct.</div>
             </div>
 

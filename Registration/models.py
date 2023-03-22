@@ -33,11 +33,11 @@ class thumnail(models.Model):
         return self.playlist_name
     
 class Playlist(models.Model):
-    Chapter_name = models.TextField(max_length=30) 
-    Topic_name = models.TextField(max_length=30) 
+    Chapter_name_playlist = models.TextField(max_length=30) 
+    Topic_name_playlist = models.TextField(max_length=30) 
     Leactur_title = models.TextField(max_length=30) 
     Desc_leactur = models.TextField(max_length=30) 
-    leactur = models.FileField(upload_to='Registration/video')
+    Upload_leactur = models.FileField(upload_to='Registration/video')
     def __str__(self):
         return self.Leactur_title
     

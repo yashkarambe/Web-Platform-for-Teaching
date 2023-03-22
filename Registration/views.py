@@ -136,11 +136,11 @@ def thumnail_(request):
      
 def lectur_Upload(request):
     post = Playlist()
-    post.Chapter_name = request.GET.get('Chapter_name')
-    post.Topic_name = request.GET.get('Topic_name')
-    post.Leactur_title = request.GET.get('Leactur_title')
-    post.Desc_leactur = request.GET.get('Desc_leactur')
-    post.Upload_leactur = request.GET.get('Upload_leactur')
+    post.Chapter_name_playlist = request.POST.get('Chapter_name_playlist')
+    post.Topic_name_playlist = request.POST.get('Topic_name_playlist')
+    post.Leactur_title = request.POST.get('Leactur_title')
+    post.Desc_leactur = request.POST.get('Desc_leactur')
+    post.Upload_leactur = request.POST.get('Upload_leactur')
     post.save()
     parm ={'button2' : 'active','button1' : 'disabled' ,'button' : 'disabled' }
     messages.success(request , "Uplode all remaining lecture with same chapter and topic name.")
