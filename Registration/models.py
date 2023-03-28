@@ -26,7 +26,7 @@ class thumnail(models.Model):
     playlist_name = models.TextField(max_length=30)
     Chapter_name = models.TextField(max_length=30)
     Topic_name = models.TextField(max_length=30)
-    Thumnail_image = models.ImageField(upload_to="Registration/thumnail")
+    Thumnail_image = models.ImageField(upload_to="Registration/playlist/thumnail")
     Short_Desc = models.TextField(max_length=500)
     pub_date = models.DateField()
     def __str__(self):
@@ -40,4 +40,11 @@ class Playlist(models.Model):
     Upload_leactur = models.FileField(upload_to='Registration/video')
     def __str__(self):
         return self.Leactur_title
+    
+    
+class Quize_name(models.Model):
+    Quize_name = models.CharField(max_length=30)
+    topic_name = models.CharField(max_length=30)
+    thumnail = models.ImageField(upload_to="Registration/Quize/thumnail")    
+    marks_per_que = models.TextField(max_length=2)
     
