@@ -44,7 +44,8 @@ class Playlist(models.Model):
     
 class Quize_name(models.Model):
     Quize_name = models.CharField(max_length=30)
+    chaptr_name = models.CharField(max_length=30)
     topic_name = models.CharField(max_length=30)
     thumnail = models.ImageField(upload_to="Registration/Quize/thumnail")    
     marks_per_que = models.TextField(max_length=2)
-    
+    descreption = models.CharField(max_length=500)

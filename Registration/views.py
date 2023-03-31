@@ -8,6 +8,7 @@ from django.contrib.auth  import authenticate,  login, logout
 from .models import thumnail
 from datetime import date
 from .models import Playlist
+from .models import Quize_name
 
 def index(request):
     # print('app running')
@@ -145,3 +146,8 @@ def lectur_Upload(request):
     parm ={'button2' : 'active','button1' : 'disabled' ,'button' : 'disabled' }
     messages.success(request , "Uplode all remaining lecture with same chapter and topic name.")
     return render(request , 'Registration/teacher/teacher.html', parm)
+
+
+def Quize(args):
+    post = Quize_name()
+    

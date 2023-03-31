@@ -20,210 +20,215 @@
 </nav>
 {% endblock %}
 {% block body %}
-<div class="container my-2">
-    <h5>Authentication</h5>
-    <hr>
-    <form class="row g-3 needs-validation" novalidate>
-        <div class="col-md-4">
-            <label for="validationCustom02" class="form-label">Email</label>
-            <input type="text" class="form-control" id="validationCustom02" required>
-            <div class="invalid-feedback">
-                Email required.
-            </div>
-        </div>
+<div class="container">
 
-        <div class="col-md-4">
-            <label for="validationCustomUsername" class="form-label">Username</label>
-            <div class="input-group has-validation">
-                <span class="input-group-text" id="inputGroupPrepend">@</span>
-                <input type="text" class="form-control" id="validationCustomUsername"
-                    aria-describedby="inputGroupPrepend" required>
-                <div class="invalid-feedback">
-                    Please provide a username.
+    <div class="card-group">
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+            <div class="col">
+                <div class="card">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                            additional content. This content is a little bit longer.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                            additional content. This content is a little bit longer.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                            additional content.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to
+                            additional content. This content is a little bit longer.</p>
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <div class="form-label col-md-6">
-            <label for="aut_pass">Password</label>
-            <input type="password" class="form-control" id="aut_pass" placeholder=" Password" fdprocessedid="ey9l7q"
-                name="aut_pass" required>
-            <div class="invalid-feedback">
-                Please provide a valid password.
-            </div>
-        </div>
+    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <h4>Add Quizes</h4>
+    </a>
+    <ul class="dropdown-menu">
 
-        <div class="col-12 my-1">
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-                <label class="form-check-label" for="invalidCheck">
-                    Agree to terms and conditions
-                </label>
-                <div class="invalid-feedback">
-                    You must agree before submitting.
+
+        <div class="container my-2">
+            <h5>Quize</h5>
+            <hr>
+            <form class="row g-3 needs-validation" novalidate action="/">
+
+                <div class="col-md-4 col-sm-6">
+                    <label for="Playlist_Name" class="form-label">Quize name</label>
+                    <input type="text" class="form-control" id="Topic_name" name="Playlist_Name" required>
+                    <div class="invalid-feedback">
+                        Quize name required.
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="col-12">
-            <a href="#Uplode_Quizes"><button class="btn btn-secondary" type="submit">Next</button></a>
-        </div>
-    </form><br>
-</div>
 
-
-<div class="container my-2">
-    <h5>Quize</h5>
-    <hr>
-    <form class="row g-3 needs-validation" novalidate>
-        
-        <div class="col-md-4 col-sm-6">
-            <label for="Playlist_Name" class="form-label">Quize name</label>
-            <input type="text" class="form-control" id="Topic_name" name="Playlist_Name" required>
-            <div class="invalid-feedback">
-                Quize name required.
-            </div>
-        </div>
-
-        <div class="col-md-4 col-sm-6">
-            <label for="Chapter_name" class="form-label">Chapter name</label>
-            <div class="input-group has-validation">
-                <input type="text" class="form-control" id="Chapter_name" name="Chapter_name"
-                    aria-describedby="inputGroupPrepend" required>
-                <div class="invalid-feedback">
-                    Please provide a Chapter name.
+                <div class="col-md-4 col-sm-6">
+                    <label for="Chapter_name" class="form-label">Chapter name</label>
+                    <div class="input-group has-validation">
+                        <input type="text" class="form-control" id="Chapter_name" name="Chapter_name"
+                            aria-describedby="inputGroupPrepend" required>
+                        <div class="invalid-feedback">
+                            Please provide a Chapter name.
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="col-md-4 col-sm-6">
-            <label for="Topic_name" class="form-label">Topic name</label>
-            <input type="text" class="form-control" id="Topic_name" required name="Topic_name">
-            <div class="invalid-feedback">
-                Topic name required.
-            </div>
-        </div>
-
-        <div class="mb-3 col-md-4 col-sm-6">
-            <label for="thumnail" class="form-label">Upload thumnail</label>
-            <input type="file" class="form-control" aria-label="file example" id="thumnail" name="thumnail" required>
-            <div class="invalid-feedback">Please Uplode thumnail.</div>
-        </div>
-
-        <div class="mb-3 col-md-4 col-sm-6">
-            <label for="validationCustom03" class="form-label">Marks per Question</label>
-            <input type="text" class="form-control" id="validationCustom03" required>
-            <div class="invalid-feedback">
-                Please provide marks.
-            </div>
-        </div>
-
-        <div class="col-md-4 col-sm-6">
-            <label for="Shor_Desc" class="form-label">Description</label>
-            <input type="text" class="form-control" id="Shor_Desc" required name="Shor_Desc">
-            <div class="invalid-feedback">
-                Describe with minimum 500 words.
-            </div>
-        </div>
-
-        <div class="col-12">
-            <a href="#Uplode_Quizes"><button class="btn btn-secondary" type="submit">Next</button></a>
-        </div>
-    </form><br>
-</div>
-
-<div class="container ">
-    <h5 id="Uplode_Quizes">Uplode Question</h5>
-    <hr>
-    <form class="row g-3 needs-validation" novalidate>
-        <div class="col-md-6 col-sm-6">
-            <label for="Quizes_name" class="form-label">Quizes name</label>
-            <div class="input-group has-validation">
-                <input type="text" class="form-control" id="Quizes_name" name="Quizes_name"
-                    aria-describedby="inputGroupPrepend" required>
-                <div class="invalid-feedback">
-                    Please enter a Quizes name.
+                <div class="col-md-4 col-sm-6">
+                    <label for="Topic_name" class="form-label">Topic name</label>
+                    <input type="text" class="form-control" id="Topic_name" required name="Topic_name">
+                    <div class="invalid-feedback">
+                        Topic name required.
+                    </div>
                 </div>
-            </div>
+
+                <div class="mb-3 col-md-4 col-sm-6">
+                    <label for="thumnail" class="form-label">Upload thumnail</label>
+                    <input type="file" class="form-control" aria-label="file example" id="thumnail" name="thumnail"
+                        required>
+                    <div class="invalid-feedback">Please Uplode thumnail.</div>
+                </div>
+
+                <div class="mb-3 col-md-4 col-sm-6">
+                    <label for="validationCustom03" class="form-label">Marks per Question</label>
+                    <input type="text" class="form-control" id="validationCustom03" required>
+                    <div class="invalid-feedback">
+                        Please provide marks.
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6">
+                    <label for="Shor_Desc" class="form-label">Description</label>
+                    <input type="text" class="form-control" id="Shor_Desc" required name="Shor_Desc">
+                    <div class="invalid-feedback">
+                        Describe with minimum 500 words.
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <a href="#Uplode_Quizes"><button class="btn btn-secondary" type="submit">Next</button></a>
+                </div>
+            </form><br>
         </div>
 
-        <div class="col-md-6 col-sm-6">
-            <label for="Chapter_name" class="form-label">Chapter name</label>
-            <div class="input-group has-validation">
-                <input type="text" class="form-control" id="Chapter_name" name="Chapter_name"
-                    aria-describedby="inputGroupPrepend" required>
-                <div class="invalid-feedback">
-                    Please provide a Chapter name.
+        <div class="container ">
+            <h5 id="Uplode_Quizes">Uplode Question</h5>
+            <hr>
+            <form class="row g-3 needs-validation" novalidate>
+                <div class="col-md-6 col-sm-6">
+                    <label for="Quizes_name" class="form-label">Quizes name</label>
+                    <div class="input-group has-validation">
+                        <input type="text" class="form-control" id="Quizes_name" name="Quizes_name"
+                            aria-describedby="inputGroupPrepend" required>
+                        <div class="invalid-feedback">
+                            Please enter a Quizes name.
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="col-md-6 col-sm-6">
-            <label for="Chapter_name" class="form-label">Topic name</label>
-            <div class="input-group has-validation">
-                <input type="text" class="form-control" id="Chapter_name" name="Chapter_name"
-                    aria-describedby="inputGroupPrepend" required>
-                <div class="invalid-feedback">
-                    Please provide a topic name.
+                <div class="col-md-6 col-sm-6">
+                    <label for="Chapter_name" class="form-label">Chapter name</label>
+                    <div class="input-group has-validation">
+                        <input type="text" class="form-control" id="Chapter_name" name="Chapter_name"
+                            aria-describedby="inputGroupPrepend" required>
+                        <div class="invalid-feedback">
+                            Please provide a Chapter name.
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="col-md-6 col-sm-6">
-            <label for="Chapter_name" class="form-label">Question</label>
-            <div class="input-group has-validation">
-                <input type="text" class="form-control" id="Chapter_name" name="Chapter_name"
-                    aria-describedby="inputGroupPrepend" required>
-                <div class="invalid-feedback">
-                    Please enter a Question.
-                </div>
-            </div>
-        </div>
 
-        <div class="col-md-6 col-sm-6">
-            <label for="Chapter_name" class="form-label">Correct Option</label>
-            <div class="input-group has-validation">
-                <input type="text" class="form-control" id="Chapter_name" name="Chapter_name"
-                    aria-describedby="inputGroupPrepend" required>
-                <div class="invalid-feedback">
-                    Please enter Correct options.
+                <div class="col-md-6 col-sm-6">
+                    <label for="Chapter_name" class="form-label">Topic name</label>
+                    <div class="input-group has-validation">
+                        <input type="text" class="form-control" id="Chapter_name" name="Chapter_name"
+                            aria-describedby="inputGroupPrepend" required>
+                        <div class="invalid-feedback">
+                            Please provide a topic name.
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
+                <div class="col-md-6 col-sm-6">
+                    <label for="Chapter_name" class="form-label">Question</label>
+                    <div class="input-group has-validation">
+                        <input type="text" class="form-control" id="Chapter_name" name="Chapter_name"
+                            aria-describedby="inputGroupPrepend" required>
+                        <div class="invalid-feedback">
+                            Please enter a Question.
+                        </div>
+                    </div>
+                </div>
 
-        <div class="col-md-6 col-sm-6">
-            <label for="Chapter_name" class="form-label">Option one</label>
-            <div class="input-group has-validation">
-                <input type="text" class="form-control" id="Chapter_name" name="Chapter_name"
-                    aria-describedby="inputGroupPrepend" required>
-                <div class="invalid-feedback">
-                    Please enter a options.
+                <div class="col-md-6 col-sm-6">
+                    <label for="Chapter_name" class="form-label">Correct Option</label>
+                    <div class="input-group has-validation">
+                        <input type="text" class="form-control" id="Chapter_name" name="Chapter_name"
+                            aria-describedby="inputGroupPrepend" required>
+                        <div class="invalid-feedback">
+                            Please enter Correct options.
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="col-md-6 col-sm-6">
-            <label for="Chapter_name" class="form-label">Option two</label>
-            <div class="input-group has-validation">
-                <input type="text" class="form-control" id="Chapter_name" name="Chapter_name"
-                    aria-describedby="inputGroupPrepend" required>
-                <div class="invalid-feedback">
-                    Please enter a options two.
+
+                <div class="col-md-6 col-sm-6">
+                    <label for="Chapter_name" class="form-label">Option one</label>
+                    <div class="input-group has-validation">
+                        <input type="text" class="form-control" id="Chapter_name" name="Chapter_name"
+                            aria-describedby="inputGroupPrepend" required>
+                        <div class="invalid-feedback">
+                            Please enter a options.
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="col-md-6 col-sm-6">
-            <label for="Chapter_name" class="form-label">Option three</label>
-            <div class="input-group has-validation">
-                <input type="text" class="form-control" id="Chapter_name" name="Chapter_name"
-                    aria-describedby="inputGroupPrepend" required>
-                <div class="invalid-feedback">
-                    Please enter a options three.
+                <div class="col-md-6 col-sm-6">
+                    <label for="Chapter_name" class="form-label">Option two</label>
+                    <div class="input-group has-validation">
+                        <input type="text" class="form-control" id="Chapter_name" name="Chapter_name"
+                            aria-describedby="inputGroupPrepend" required>
+                        <div class="invalid-feedback">
+                            Please enter a options two.
+                        </div>
+                    </div>
                 </div>
-            </div>
+                <div class="col-md-6 col-sm-6">
+                    <label for="Chapter_name" class="form-label">Option three</label>
+                    <div class="input-group has-validation">
+                        <input type="text" class="form-control" id="Chapter_name" name="Chapter_name"
+                            aria-describedby="inputGroupPrepend" required>
+                        <div class="invalid-feedback">
+                            Please enter a options three.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <a href="#Uplode_Quizes"><button class="btn btn-secondary" type="submit">Next</button></a>
+                </div>
+            </form><br>
         </div>
-        
-        <div class="col-12">
-            <a href="#Uplode_Quizes"><button class="btn btn-secondary" type="submit">Next</button></a>
-        </div>
-    </form><br>
+    </ul>
 </div>
 {% endblock %}
 {% block js %}
