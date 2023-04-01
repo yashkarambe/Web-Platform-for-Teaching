@@ -26,8 +26,11 @@
             <strong></strong> {{ message }}
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
-        {% endfor %}
-
+    {% endfor %}
+        <form action="/Registration/logout_handeler" method="post">
+            {% csrf_token %}
+            <center><button type="submit" class="btn btn-dark my-2">logout</button></center>
+        </form>
     <div class="card-group">
         <div class="row row-cols-1 row-cols-md-2 g-4">
             <div class="col">
@@ -78,6 +81,7 @@
     </a>
     <ul class="dropdown-menu">
         <div class="container my-2">
+            
             <h5>Quize</h5>
             <hr>
             <form class="row g-3 needs-validation" novalidate action="/Registration/Quize_thum" method="post">

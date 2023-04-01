@@ -21,7 +21,12 @@
         </ul>
         </ul>
     </nav>
-
+{% endblock %}
+{% block body %}
+<form action="/Registration/logout_handeler" method="post">
+    {% csrf_token %}
+    <center><button type="submit" class="btn btn-dark my-2">logout</button></center>
+</form>
     <div class="container d-flex justify-content-center">
         <div class="card mb-3" style="max-width: 540px;">
             <div class="row g-0">

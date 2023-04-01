@@ -19,15 +19,14 @@
                 <button class="nav-link rounded-5" id="Dashboard" data-bs-toggle="tab" type="button" role="tab"
                     aria-selected="false">Dashboard</button>
             </li>
-        </ul>
-        </ul>
+        </ul>  
     </nav>
-
+    
     <!-- alarts -->
     <div class="container">
         {%for message in messages %}
         <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
-            <strong>login {{ message.tags }}!</strong> {{ message }}
+            <strong>{{ message.tags }}!</strong> {{ message }}
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
         {% endfor %}
@@ -35,6 +34,10 @@
     {% endblock %}
     {% block body %} 
     <div class="container my-2">
+        <form action="/Registration/logout_handeler" method="post">
+            {% csrf_token %}
+            <center><button type="submit" class="btn btn-dark">logout</button></center>
+        </form>
         <h5>Authentication</h5>
         <hr>
         <form class="row g-3 needs-validation" novalidate action="/Registration/lecture_authentication" method="post">{% csrf_token %}
