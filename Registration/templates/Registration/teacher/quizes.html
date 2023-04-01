@@ -21,6 +21,12 @@
 {% endblock %}
 {% block body %}
 <div class="container">
+    {%for message in messages %}
+        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+            <strong></strong> {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor %}
 
     <div class="card-group">
         <div class="row row-cols-1 row-cols-md-2 g-4">
@@ -71,16 +77,14 @@
         <h4>Add Quizes</h4>
     </a>
     <ul class="dropdown-menu">
-
-
         <div class="container my-2">
             <h5>Quize</h5>
             <hr>
-            <form class="row g-3 needs-validation" novalidate action="/">
-
+            <form class="row g-3 needs-validation" novalidate action="/Registration/Quize_thum" method="post">
+                {% csrf_token %}
                 <div class="col-md-4 col-sm-6">
-                    <label for="Playlist_Name" class="form-label">Quize name</label>
-                    <input type="text" class="form-control" id="Topic_name" name="Playlist_Name" required>
+                    <label for="Quize_name" class="form-label">Quize name</label>
+                    <input type="text" class="form-control" id="Quize_name" name="Quize_name" required>
                     <div class="invalid-feedback">
                         Quize name required.
                     </div>
@@ -113,23 +117,23 @@
                 </div>
 
                 <div class="mb-3 col-md-4 col-sm-6">
-                    <label for="validationCustom03" class="form-label">Marks per Question</label>
-                    <input type="text" class="form-control" id="validationCustom03" required>
+                    <label for="Marks_per_Que" class="form-label">Marks per Question</label>
+                    <input type="text" class="form-control" id="Marks_per_Que" name="Marks_per_Que" required>
                     <div class="invalid-feedback">
                         Please provide marks.
                     </div>
                 </div>
 
                 <div class="col-md-4 col-sm-6">
-                    <label for="Shor_Desc" class="form-label">Description</label>
-                    <input type="text" class="form-control" id="Shor_Desc" required name="Shor_Desc">
+                    <label for="Description" class="form-label">Description</label>
+                    <input type="text" class="form-control" id="Description" required name="Description">
                     <div class="invalid-feedback">
                         Describe with minimum 500 words.
                     </div>
                 </div>
 
                 <div class="col-12">
-                    <a href="#Uplode_Quizes"><button class="btn btn-secondary" type="submit">Next</button></a>
+                    <a href="#Uplode_Quizes"><button class="btn btn-secondary{{button2}}" type="submit">Next</button></a>
                 </div>
             </form><br>
         </div>
@@ -138,6 +142,7 @@
             <h5 id="Uplode_Quizes">Uplode Question</h5>
             <hr>
             <form class="row g-3 needs-validation" novalidate>
+                {% csrf_token %}
                 <div class="col-md-6 col-sm-6">
                     <label for="Quizes_name" class="form-label">Quizes name</label>
                     <div class="input-group has-validation">

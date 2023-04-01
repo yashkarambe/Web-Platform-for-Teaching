@@ -8,7 +8,7 @@ from django.contrib.auth  import authenticate,  login, logout
 from .models import thumnail
 from datetime import date
 from .models import Playlist
-from .models import Quize_name
+from .models import Quize_thumnail
 
 def index(request):
     # print('app running')
@@ -53,7 +53,7 @@ def login(request):
     password = request.POST.get('log_pass')
     account_type = request.POST.get('account_type_log')
     login_data = {'User_name': user, 'Email': Email, 'password': password, 'account_type': account_type}
-    print(login_data)  #-->  for testing 
+    # print(login_data)  #-->  for testing 
     
     Data = []
     if account_type == "Student" :
@@ -64,7 +64,7 @@ def login(request):
     # print(len(Data))
     for i in range(len(Data)):  
             if Data[i] == login_data : 
-                print(Data[i]) #--> for testing 
+                # print(Data[i]) #--> for testing 
                 pass_match = True
                 break
         
@@ -102,13 +102,13 @@ def lecture_authentication(request):
         Password = request.POST.get('aut_pass')
         
         authorize = {'User_name': user, 'Email': Email, 'password': Password, 'account_type':'Teacher' }
-        print(authorize)
+        # print(authorize)
         Data = []
         Data.extend(log_in_registtration_teacher.objects.values('User_name','Email' , 'password' ,'account_type'))
         
         for i in range(len(Data)):  
             if Data[i] == authorize :
-                print(i) 
+                # print(i) 
                 pass_match = True
                 break
         
@@ -148,6 +148,33 @@ def lectur_Upload(request):
     return render(request , 'Registration/teacher/teacher.html', parm)
 
 
-def Quize(args):
-    post = Quize_name()
+def Quize_thum(request):
+    Quize_name = request.POST.get('Quize_name')
+    chaptr_name = request.POST.get('Chapter_name')
+    topic_name = request.POST.get('Topic_name')
+    pass_match = False
+    check = {"Quize_name":Quize_name,"chaptr_name":chaptr_name,"topic_name":topic_name}
+    print(check)
+    data=[]
+    data.extend(Quize_thumnail.objects.values('Quize_name','chaptr_name','topic_name'))
+    for i in range(len(data)):
+        if data[i]==check:
+            pass_match = True
+    if pass_match:
+        messages.success(request , "This Quize is already exist! If you want to add Question Uplode all remaining question with same chapter and topic name.")
+        parm = {'button1':'active','button2' : 'disabled'}
+        return render(request , 'Registration/teacher/quizes.html', parm)
+    else: 
+        post = Quize_thumnail()
+        post.Quize_name = request.POST.get('Quize_name')
+        post.chaptr_name = request.POST.get('Chapter_name')
+        post.topic_name = request.POST.get('Topic_name')
+        post.thumnail = request.POST.get('thumnail')
+        post.marks_per_que = request.POST.get('Marks_per_Que')
+        post.descreption = request.POST.get('Description')
+        post.save()
+        print('success')    
+        parm = {'button1':'active','button2' : 'disabled'}
+        messages.success(request , "Uplode all remaining question with same chapter and topic name.")
+        return render(request , 'Registration/teacher/quizes.html', parm)
     
