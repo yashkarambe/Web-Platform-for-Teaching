@@ -21,16 +21,16 @@
 {% endblock %}
 {% block body %}
 <div class="container">
-    {%for message in messages %}
-        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
-            <strong></strong> {{ message }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    {% endfor %}
-        <form action="/Registration/logout_handeler" method="post">
-            {% csrf_token %}
-            <center><button type="submit" class="btn btn-dark my-2">logout</button></center>
-        </form>
+    <form action="/Registration/logout_handeler" method="post">
+        {% csrf_token %}
+        <center><button type="submit" class="btn btn-dark my-2">logout</button></center>
+        {%for message in messages %}
+            <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                <strong></strong> {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endfor %}
+    </form>
     <div class="card-group">
         <div class="row row-cols-1 row-cols-md-2 g-4">
             <div class="col">
@@ -79,7 +79,7 @@
     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
         <h4>Add Quizes</h4>
     </a>
-    <ul class="dropdown-menu">
+    
         <div class="container my-2">
             
             <h5>Quize</h5>
@@ -145,12 +145,12 @@
         <div class="container ">
             <h5 id="Uplode_Quizes">Uplode Question</h5>
             <hr>
-            <form class="row g-3 needs-validation" novalidate>
+            <form class="row g-3 needs-validation" novalidate action="/Registration/quize_que" method="post">
                 {% csrf_token %}
                 <div class="col-md-6 col-sm-6">
                     <label for="Quizes_name" class="form-label">Quizes name</label>
                     <div class="input-group has-validation">
-                        <input type="text" class="form-control" id="Quizes_name" name="Quizes_name"
+                        <input type="text" class="form-control" id="Quizes_name" name="quizes_name"
                             aria-describedby="inputGroupPrepend" required>
                         <div class="invalid-feedback">
                             Please enter a Quizes name.
@@ -159,9 +159,9 @@
                 </div>
 
                 <div class="col-md-6 col-sm-6">
-                    <label for="Chapter_name" class="form-label">Chapter name</label>
+                    <label for="chapter_name" class="form-label">Chapter name</label>
                     <div class="input-group has-validation">
-                        <input type="text" class="form-control" id="Chapter_name" name="Chapter_name"
+                        <input type="text" class="form-control" id="chapter_name" name="chapter_name"
                             aria-describedby="inputGroupPrepend" required>
                         <div class="invalid-feedback">
                             Please provide a Chapter name.
@@ -170,9 +170,9 @@
                 </div>
 
                 <div class="col-md-6 col-sm-6">
-                    <label for="Chapter_name" class="form-label">Topic name</label>
+                    <label for="topic_name" class="form-label">Topic name</label>
                     <div class="input-group has-validation">
-                        <input type="text" class="form-control" id="Chapter_name" name="Chapter_name"
+                        <input type="text" class="form-control" id="topic_name" name="topic_name"
                             aria-describedby="inputGroupPrepend" required>
                         <div class="invalid-feedback">
                             Please provide a topic name.
@@ -180,9 +180,9 @@
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-6">
-                    <label for="Chapter_name" class="form-label">Question</label>
+                    <label for="question_name" class="form-label">Question</label>
                     <div class="input-group has-validation">
-                        <input type="text" class="form-control" id="Chapter_name" name="Chapter_name"
+                        <input type="text" class="form-control" id="question_name" name="question_name"
                             aria-describedby="inputGroupPrepend" required>
                         <div class="invalid-feedback">
                             Please enter a Question.
@@ -191,9 +191,9 @@
                 </div>
 
                 <div class="col-md-6 col-sm-6">
-                    <label for="Chapter_name" class="form-label">Correct Option</label>
+                    <label for="correct_option" class="form-label">correct one</label>
                     <div class="input-group has-validation">
-                        <input type="text" class="form-control" id="Chapter_name" name="Chapter_name"
+                        <input type="text" class="form-control" id="correct_option" name="correct_option"
                             aria-describedby="inputGroupPrepend" required>
                         <div class="invalid-feedback">
                             Please enter Correct options.
@@ -202,9 +202,9 @@
                 </div>
 
                 <div class="col-md-6 col-sm-6">
-                    <label for="Chapter_name" class="form-label">Option one</label>
+                    <label for="option_one" class="form-label">Option one</label>
                     <div class="input-group has-validation">
-                        <input type="text" class="form-control" id="Chapter_name" name="Chapter_name"
+                        <input type="text" class="form-control" id="option_one" name="option_one"
                             aria-describedby="inputGroupPrepend" required>
                         <div class="invalid-feedback">
                             Please enter a options.
@@ -212,9 +212,9 @@
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-6">
-                    <label for="Chapter_name" class="form-label">Option two</label>
+                    <label for="option_two" class="form-label">Option two</label>
                     <div class="input-group has-validation">
-                        <input type="text" class="form-control" id="Chapter_name" name="Chapter_name"
+                        <input type="text" class="form-control" id="option_two" name="option_two"
                             aria-describedby="inputGroupPrepend" required>
                         <div class="invalid-feedback">
                             Please enter a options two.
@@ -222,9 +222,9 @@
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-6">
-                    <label for="Chapter_name" class="form-label">Option three</label>
+                    <label for="option_three" class="form-label">Option three</label>
                     <div class="input-group has-validation">
-                        <input type="text" class="form-control" id="Chapter_name" name="Chapter_name"
+                        <input type="text" class="form-control" id="option_three" name="option_three"
                             aria-describedby="inputGroupPrepend" required>
                         <div class="invalid-feedback">
                             Please enter a options three.
@@ -237,7 +237,7 @@
                 </div>
             </form><br>
         </div>
-    </ul>
+   
 </div>
 {% endblock %}
 {% block js %}

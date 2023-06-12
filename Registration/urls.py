@@ -32,5 +32,8 @@ urlpatterns = [
     path('thumnail_',views.thumnail_,name='thumnail_'),
     path('lectur_Upload',views.lectur_Upload,name='lectur_Upload'),
     path('Quize_thum',views.Quize_thum,name='Quize_thum'),
-    
+    path('quize_que' , views.quize_que , name='quize_que'),
+    path('dashboard_student' , views.dashboard_student , name='dashboard_student'),
+    path('notice_student',views.notice_student , name='notice_student'),
+    path('asingment_student', views.asingment_student , name='asingment_student'),
 ]

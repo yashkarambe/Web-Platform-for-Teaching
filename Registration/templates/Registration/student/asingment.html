@@ -1,0 +1,56 @@
+{% extends 'Registration/basic.html' %}
+{% block title %} -notice {% endblock %}
+{% block css %} 
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+
+  </style>
+  {% endblock %}
+
+
+  {% block body %} 
+  <main>
+    <div class="container py-4">
+      <header class="pb-3 border-bottom">
+        <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+          <!-- logo -->
+          <span class="fs-4">Educative</span>
+        </a>
+      </header>
+      <!-- <div class="container-fluid py-5 "> -->
+        <h1 class="display-6 fw-bold">Assingment's!</h1>
+      </div>
+
+
+        <div class="container">
+          <div class="w-100 p-5 text-bg-dark rounded-3  ">
+            <h2>New , Change has been done !</h2>
+            <p>Swap the background-color utility and add a `.text-*` color utility to mix up the jumbotron look. Then,
+              mix and match with additional component themes and more. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non voluptate nemo dolore, commodi dicta rerum quisquam sunt sed consectetur recusandae hic atque veritatis in eius iure dolorum animi doloremque suscipit?</p>
+          </div><br>
+
+          <div class="w-100 p-5 text-bg-dark rounded-3  ">
+            <h2>Hey , there is change !</h2>
+            <p>Swap the background-color utility and add a `.text-*` color utility to mix up the jumbotron look. Then,
+              mix and match with additional component themes and more. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam corporis consequuntur velit illo voluptatibus, nostrum fugit harum illum nisi, officiis ad quas id ratione minima sit eligendi temporibus quibusdam est.</p>
+          </div>
+        </div>
+
+      <footer class="pt-3 mt-4 text-muted border-top">
+        &copy; 2022-2023 All Rights are resivered.
+      </footer>
+    </div>
+  </main>
+  {% endblock %}

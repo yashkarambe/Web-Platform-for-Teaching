@@ -1,0 +1,137 @@
+{% extends 'Registration/basic.html' %}
+{% block title %} Quize {% endblock %}
+{% block css %} 
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+{% endblock %}
+
+
+{% block body %} 
+  <main>
+    <div class="container py-4">
+      <header class="pb-3 border-bottom">
+        <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+          <!-- logo -->
+          <span class="fs-4">Educative</span>
+        </a>
+      </header>
+      <!-- <div class="container-fluid py-5 "> -->
+      <h1 class="display-6 fw-bold">Assingment's!</h1>
+    </div>
+
+
+    <div class="container">
+      <form class="needs-validation" novalidate>
+        <div class="w-100 p-5 text-bg-dark rounded-3  ">
+          <h2>Match with additional component themes and more?</h2>
+          <div class="checkbox mb-3 sform-check form-switch row form-label">
+
+            <label for="one">
+              <input class="form-check-input" type="radio" value="one" name="question_one" role="switch" id="one"
+                required> 1. option one.
+            </label>
+
+            <label for="two">
+              <input class="form-check-input" type="radio" value="two" name="question_one" role="switch" id="two"
+                required> 2. Option two.
+            </label>
+
+            <label for="three">
+              <input class="form-check-input" type="radio" value="three" name="question_one" role="switch" id="three"
+                required> 3. Option three.
+            </label>
+
+            <label for="four">
+              <input class="form-check-input" type="radio" value="four" name="question_one" role="switch" id="four"
+                required> 4. Option four.
+            </label>
+            
+            <div class="invalid-feedback">
+              Please select.
+            </div>
+          </div>
+        </div>
+  
+      <br>
+
+        <div class="w-100 p-5 text-bg-dark rounded-3  ">
+          <h2>What are different type of data?</h2>
+          <div class="checkbox mb-3 sform-check form-switch row form-label">
+
+            <label for="one1">
+              <input class="form-check-input" type="radio" value="one1" name="question_two" role="switch" id="one1"
+                required> 1. option one.
+            </label>
+
+            <label for="two1">
+              <input class="form-check-input" type="radio" value="two1" name="question_two" role="switch" id="two1"
+                required> 2. Option two.
+            </label>
+
+            <label for="three1">
+              <input class="form-check-input" type="radio" value="three1" name="question_two" role="switch" id="three1"
+                required> 3. Option three.
+            </label>
+
+            <label for="four1">
+              <input class="form-check-input" type="radio" value="four1" name="question_two" role="switch" id="four1"
+                required> 4. Option four.
+            </label>
+
+            <div class="invalid-feedback">
+              Please select.
+            </div>
+          </div>
+        </div>
+      
+      <br>
+      <button class="text-center btn btn-lg btn-primary" type="submit" fdprocessedid="op7bv">submit</button>
+    </div>
+  </form>
+    <footer class="pt-3 mt-4 text-muted border-top">
+      &copy; 2022-2023 All Rights are resivered.
+    </footer>
+    </div>
+  </main>
+{% endblock %}
+
+
+{% block js %}
+<script>
+  (() => {
+      'use strict'
+      const forms = document.querySelectorAll('.needs-validation')
+
+      // Loop over them and prevent submission
+      Array.from(forms).forEach(form => {
+          form.addEventListener('submit', event => {
+              if (!form.checkValidity()) {
+                  event.preventDefault()
+                  event.stopPropagation()
+              }
+
+              form.classList.add('was-validated')
+          }, false)
+      })
+  })()
+  const myModal = document.getElementById('login_form')
+  const myInput = document.getElementById('login')
+
+  myModal.addEventListener('shown.bs.modal', () => {
+      myInput.focus()
+  }) 
+</script>
+{% endblock %}

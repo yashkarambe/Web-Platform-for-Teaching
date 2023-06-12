@@ -1,19 +1,7 @@
-<!doctype html>
-<html lang="en">
+{% extends 'Registration/basic.html' %}
+{% block title %} -student {% endblock %}
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
-  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-  <meta name="generator" content="Hugo 0.108.0">
-  <title>Educative</title>
-
-  <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/offcanvas-navbar/">
-
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-  <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+{% block css %}
 
   <style>
     html,
@@ -123,14 +111,13 @@
       -webkit-overflow-scrolling: touch;
     }
   </style>
+  {% endblock %}
+
+  
 
 
-  <!-- Custom styles for this template -->
-  <link href="offcanvas-navbar.css" rel="stylesheet">
-</head>
 
-<body class="bg-light">
-
+  {% block navbar %}
   <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark" aria-label="Main navigation">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Educative</a>
@@ -141,19 +128,19 @@
       <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link " aria-current="page" href="/dashboard/test.html">Dashboard</a>
+            <a class="nav-link " aria-current="page" id="dashboard_student" >Dashboard</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/Notice/index.html">Notice</a>
+            <a class="nav-link" id="notice_student">Notice</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/assingment/index.html">Assingment</a>
+            <a class="nav-link " id="asingment_student" >Assingment</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/cources/index.html">Courses</a>
+          <li class="nav-item ">
+            <a class="nav-link disabled" href="/cources/index.html">Courses</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Profile</a>
+          <li class="nav-item ">
+            <a class="nav-link disabled" href="#" >Profile</a>
           </li>
         </ul>
         <form action="/Registration/logout_handeler" method="post">
@@ -163,8 +150,8 @@
       </div>
     </div>
   </nav>
-
-
+  {% endblock %}
+  {% block body %} 
   <!-- Show alart -->
   {% for message in messages %}
   <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
@@ -207,17 +194,11 @@
       </div>
     </div>
   </div>
+  {% endblock %}
 
 
 
-
-  <!-- <script src="offcanvas-navbar.js"></script> -->
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
-    integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
-    crossorigin="anonymous"></script>
+  {% block js %}
   <script>
     (() => {
       'use strict'
@@ -228,7 +209,15 @@
     })()
 
 
-  </script>
-</body>
+    document.getElementById('dashboard_student').onclick = function () {
+      location.href = '/Registration/dashboard_student'
+  };
+    document.getElementById('notice_student').onclick = function () {
+      location.href = '/Registration/notice_student'
+  };
+    document.getElementById('asingment_student').onclick = function () {
+      location.href = '/Registration/asingment_student'
+  };
+    </script>
+{% endblock %}
 
-</html>

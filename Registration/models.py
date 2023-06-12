@@ -51,3 +51,15 @@ class Quize_thumnail(models.Model):
     descreption = models.CharField(max_length=500)
     def __str__(self):
         return self.Quize_name
+    
+class Quize_questions(models.Model):
+    Quize_name = models.CharField(max_length=30)
+    chaptr_name = models.CharField(max_length=30)
+    topic_name = models.CharField(max_length=30)
+    question = models.CharField(max_length=500)
+    correct_option = models.CharField(max_length=500 , null=True)
+    option_one = models.CharField(max_length=200)
+    option_two = models.CharField(max_length=200)
+    option_three = models.CharField(max_length=200)
+    def __str__(self):
+        return self.topic_name

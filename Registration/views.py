@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render,redirect
-from .models import log_in_registtration_student
+from .models import Quize_questions, log_in_registtration_student
 from .models import log_in_registtration_teacher
 from django.views.decorators.csrf import requires_csrf_token
 from django.contrib import messages   # for Django masseage show
@@ -154,7 +154,7 @@ def Quize_thum(request):
     topic_name = request.POST.get('Topic_name')
     pass_match = False
     check = {"Quize_name":Quize_name,"chaptr_name":chaptr_name,"topic_name":topic_name}
-    print(check)
+    # print(check)
     data=[]
     data.extend(Quize_thumnail.objects.values('Quize_name','chaptr_name','topic_name'))
     for i in range(len(data)):
@@ -173,8 +173,31 @@ def Quize_thum(request):
         post.marks_per_que = request.POST.get('Marks_per_Que')
         post.descreption = request.POST.get('Description')
         post.save()
-        print('success')    
+        # print('success')    
         parm = {'button1':'active','button2' : 'disabled'}
         messages.success(request , "Uplode all remaining question with same chapter and topic name.")
         return render(request , 'Registration/teacher/quizes.html', parm)
     
+def quize_que(request):
+    post = Quize_questions()
+    post.Quize_name = request.POST.get('quizes_name')
+    post.chaptr_name = request.POST.get('chapter_name')
+    post.topic_name = request.POST.get('topic_name')
+    post.question = request.POST.get('question_name')
+    post.correct_option = request.POST.get('correct_option')
+    post.option_one = request.POST.get('option_one')
+    post.option_two = request.POST.get('option_two')
+    post.option_three = request.POST.get('option_three')
+    post.save()
+    messages.success(request , "Uplode all remaining question with same chapter and topic name.")
+    return render(request , 'Registration/teacher/quizes.html')
+
+def dashboard_student(request):
+    return render(request ,"Registration/student/dashboard.html")
+def notice_student(request):
+    return render(request ,"Registration/student/notice.html")
+def asingment_student(request):
+    quize_name = request.POST.get('')
+    parm = quize_name
+    messages.success(request , "Submit remaining assingment if it is not done.")
+    return render(request ,"Registration/student/asingment.html" , parm)
