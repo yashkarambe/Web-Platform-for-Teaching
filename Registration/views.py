@@ -199,23 +199,6 @@ def notice_student(request):
 def asingment_student(request):
     data = []
     Data = Quize_thumnail.objects.values('topic_name' , 'thumnail' , 'marks_per_que' , 'descreption' )
-    topics = {item['topic_name'] for item in Data}
-    thums = {item['thumnail'] for item in Data}
-    marks = {item['marks_per_que'] for item in Data}
-    descs = {item['descreption'] for item in Data}
-    for topic  in topics :
-        top = Quize_thumnail.objects.filter(topic_name = topic)
-        data.append([top])
-    for thum in thums:
-        thumnail = Quize_thumnail.objects.filter(thumnail = thum)
-        data.append([thumnail])
-    for mark in marks:
-        marks_per_que = Quize_thumnail.objects.filter(marks_per_que = mark)
-        data.append([marks_per_que])
-    for desc in descs:
-        descreption = Quize_thumnail.objects.filter(descreption = descs)
-        data.append([descreption])
-
     param = {"Data" : Data }
     print(param)
     messages.success(request , "Submit remaining assingment if it is not done.")
