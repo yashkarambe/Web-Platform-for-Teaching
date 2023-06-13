@@ -29,34 +29,35 @@
         </a>
       </header>
       <!-- <div class="container-fluid py-5 "> -->
-      <h1 class="display-6 fw-bold">Assingment's!</h1>
+      <h1 class="display-6 fw-bold">It's Quize time!</h1>
     </div>
 
-
+    {% for i in Data %} 
+    
     <div class="container">
       <form class="needs-validation" novalidate>
         <div class="w-100 p-5 text-bg-dark rounded-3  ">
-          <h2>Match with additional component themes and more?</h2>
+          <h2>{{i.question}}</h2>
           <div class="checkbox mb-3 sform-check form-switch row form-label">
 
             <label for="one">
               <input class="form-check-input" type="radio" value="one" name="question_one" role="switch" id="one"
-                required> 1. option one.
+                required> 1. {{i.correct_option}}
             </label>
 
             <label for="two">
               <input class="form-check-input" type="radio" value="two" name="question_one" role="switch" id="two"
-                required> 2. Option two.
+                required> 2. {{i.option_one}}
             </label>
 
             <label for="three">
               <input class="form-check-input" type="radio" value="three" name="question_one" role="switch" id="three"
-                required> 3. Option three.
+                required> 3. {{i.option_two}}
             </label>
 
             <label for="four">
               <input class="form-check-input" type="radio" value="four" name="question_one" role="switch" id="four"
-                required> 4. Option four.
+                required> 4. {{i.option_three}}
             </label>
             
             <div class="invalid-feedback">
@@ -96,11 +97,12 @@
             </div>
           </div>
         </div>
-      
-      <br>
-      <button class="text-center btn btn-lg btn-primary" type="submit" fdprocessedid="op7bv">submit</button>
-    </div>
-  </form>
+        <br>
+        
+        <button class="text-center btn btn-lg btn-primary" type="submit" fdprocessedid="op7bv">submit</button>
+      </div>
+    </form>
+    {% endfor %}
     <footer class="pt-3 mt-4 text-muted border-top">
       &copy; 2022-2023 All Rights are resivered.
     </footer>

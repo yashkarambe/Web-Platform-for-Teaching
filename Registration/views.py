@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render,redirect
-from .models import Quize_questions, log_in_registtration_student
+from .models import Notic, Quize_questions, log_in_registtration_student
 from .models import log_in_registtration_teacher
 from django.views.decorators.csrf import requires_csrf_token
 from django.contrib import messages   # for Django masseage show
@@ -88,9 +88,16 @@ def logout_handeler(request):
 def teacher(request):
     parm = { 'button2' : 'disabled','button1' : 'disabled' }
     return render(request ,"Registration/teacher/teacher.html" , parm)
+
 def quizes(request):
     return render(request ,"Registration/teacher/quizes.html")
+
 def dashboard(request):
+    post = Notic()
+    post.Heading = request.POST.get('Heading')
+    post.desc = request.POST.get('desc')
+    post.save()
+    messages.success(request , "Successfuly uploaded.")
     return render(request ,"Registration/teacher/dashboard.html")
 
 @requires_csrf_token
@@ -194,12 +201,24 @@ def quize_que(request):
 
 def dashboard_student(request):
     return render(request ,"Registration/student/dashboard.html")
+
 def notice_student(request):
-    return render(request ,"Registration/student/notice.html")
+    Data = Notic.objects.values('Heading' , 'desc')
+    param = {"Data" : Data }
+    return render(request ,"Registration/student/notice.html" , param)
+
 def asingment_student(request):
-    data = []
     Data = Quize_thumnail.objects.values('topic_name' , 'thumnail' , 'marks_per_que' , 'descreption' )
     param = {"Data" : Data }
-    print(param)
     messages.success(request , "Submit remaining assingment if it is not done.")
     return render(request ,"Registration/student/asingment.html" , param)
+
+def courses(request):
+    Data = thumnail.objects.values( 'playlist_name', 'Chapter_name' , 'Topic_name' , 'Thumnail_image' ,'Short_Desc')
+    param = {"Data" : Data }
+    return render(request , "Registration/student/courses.html" , param)
+
+def quize(request):
+    Data = Quize_questions.objects.values('topic_name' , 'question' , 'correct_option' , 'option_one' , 'option_two' , 'option_three')
+    param = {"Data" : Data }
+    return render(request ,"Registration/student/quize.html" ,param)
