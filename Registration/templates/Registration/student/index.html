@@ -164,12 +164,12 @@
   <div class="container d-flex align-self-center justify-content-center ">
     <div class="row gap-3 my-3">
       <div class="card" style="width: 18rem; height:28rem;">
-        <img src="/home/cource 1.jpg" class="card-img-top h-50" alt="...">
+        <img src="media/Registration/Quize/thumnail/watch.jpeg" class="card-img-top h-50" alt="...">
         <div class="card-body">
-          <h6>Name of Cource</h6>
+          <h6>Data Seience</h6>
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
             content.</p>
-          <a href="/playlist/home.html" class="card-link btn btn-outline-danger ">Resume learning</a>
+          <a  id="playlist" class="card-link btn btn-outline-danger ">Resume learning</a>
         </div>
       </div>
 
@@ -189,7 +189,7 @@
           <h6>Name of Cource</h6>
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
             content.</p>
-          <a href="/playlist/home.html" class="card-link btn btn-outline-danger">Resume learning</a>
+          <a id="playlist" class="card-link btn btn-outline-danger">Resume learning</a>
         </div>
       </div>
     </div>
@@ -223,6 +223,9 @@
   };
     document.getElementById('quize').onclick = function () {
       location.href = '/Registration/quize'
+  };
+    document.getElementById('playlist').onclick = function () {
+      location.href = '/Registration/playlist_ds'
   };
     </script>
 {% endblock %}

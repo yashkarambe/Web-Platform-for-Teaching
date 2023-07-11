@@ -25,7 +25,10 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <button class="btn btn-outline-success " type="button">logout</button>
+                    <form action="/Registration/logout_handeler" method="post">
+                        {% csrf_token %}
+                        <button class="btn btn-outline-success" type="submit" fdprocessedid="op7bv" >logout</button>
+                      </form>
                 </div>
                 <a class="navbar-brand text-center" href="#">Educative</a>
             </div>

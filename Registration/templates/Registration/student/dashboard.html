@@ -159,58 +159,6 @@
       {% endblock %}
 
       {% block js %}
-
-      <!-- /* globals Chart:false, feather:false */ -->
-      <script>
-        (() => {
-          'use strict'
-
-          feather.replace({ 'aria-hidden': 'true' })
-
-          const ctx = document.getElementById('myChart')
-         
-          const myChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-              labels: [
-                'Sunday',
-                'Monday',
-                'Tuesday',
-                'Wednesday',
-                'Thursday',
-                'Friday',
-                'Saturday'
-              ],
-              datasets: [{
-                data: [
-                  110,
-                  100,
-                  150,
-                  130,
-                  140,
-                  120,
-                  160
-                ],
-                lineTension: 0,
-                backgroundColor: 'transparent',
-                borderColor: '#007bff',
-                borderWidth: 4,
-                pointBackgroundColor: '#007bff'
-              }]
-            },
-            options: {
-              scales: {
-                yAxes: [{
-                  ticks: {
-                    beginAtZero: false
-                  }
-                }]
-              },
-              legend: {
-                display: false
-              }
-            }
-          })
-        })()
-      </script>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous">
+      </script><script src="/Registration/dashboard.js"></script>
       {% endblock %}

@@ -37,5 +37,9 @@ urlpatterns = [
     path('notice_student',views.notice_student , name='notice_student'),
     path('asingment_student', views.asingment_student , name='asingment_student'),
     path('courses' , views.courses , name='courses'),
-    path('quize',views.quize , name='quize')
+    path('quize',views.quize , name='quize'),
+    path('dashboard',views.dashboard , name='dashboard'),
+    path('about_us', views.about_us , name='about_us'),
+    path('contact_us' , views.contact_us , name='contact_us'),
+    path('playlist_ds',views.playlist_ds , name='playlist_ds'),
 ]

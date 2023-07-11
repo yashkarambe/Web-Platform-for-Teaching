@@ -222,3 +222,15 @@ def quize(request):
     Data = Quize_questions.objects.values('topic_name' , 'question' , 'correct_option' , 'option_one' , 'option_two' , 'option_three')
     param = {"Data" : Data }
     return render(request ,"Registration/student/quize.html" ,param)
+
+def dashboard(request):
+    return render(request ,"Registration/student/dashboard.js" )
+
+def about_us(request):
+    return render(request ,"Registration/about.html" )
+
+def contact_us(request):
+    return render(request ,"Registration/contact_us.html" )
+
+def playlist_ds(request):
+    return render(request ,"Registration/student/playlist.html" )
