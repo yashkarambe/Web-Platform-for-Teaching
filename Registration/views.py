@@ -223,8 +223,8 @@ def quize(request):
     param = {"Data" : Data }
     return render(request ,"Registration/student/quize.html" ,param)
 
-def dashboard(request):
-    return render(request ,"Registration/student/dashboard.js" )
+# def dashboard(request):
+#     return render(request ,"Registration/student/dashboard.js" )
 
 def about_us(request):
     return render(request ,"Registration/about.html" )

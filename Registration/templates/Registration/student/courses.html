@@ -82,19 +82,19 @@
         {% for i in Data %} 
         <div class="col">
           <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>{{i.playlist_name}}</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">{{i.Thumnail_image }} </text></svg>
+            <!-- <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>{{i.playlist_name}}</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">{{i.Thumnail_image }} </text></svg> -->
+            <img src="{{i.Thumnail_image}}" alt=""/>
             <div class="card-body">
               <div class="card-text">
                 <h5>{{ i.Chapter_name }}</h5>
-                <h6>{{ i.Topic_name }}</h6>
+                <!-- <h6>{{ i.Topic_name }}</h6> -->
                 <p>{{i.Short_Desc}}</p>
               </div>
               <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
+                <div class="btn-group"> 
                   <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
                   <button type="button" class="btn btn-sm btn-outline-secondary">enroll</button>
                 </div>
-                <!-- <small class="text-muted">9 mins</small> -->
               </div>
             </div>
           </div>

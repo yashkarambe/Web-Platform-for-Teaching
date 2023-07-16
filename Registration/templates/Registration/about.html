@@ -1,22 +1,6 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.108.0">
-    <title>Educative</title>
-
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/heroes/">
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-
-    
-
-<link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
-
+{% extends 'Registration/basic.html' %}
+{% block title %} About {% endblock %}
+{% block css %}
     <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -69,13 +53,9 @@
         -webkit-overflow-scrolling: touch;
       }
     </style>
+    {% endblock %}
 
-    
-    <!-- Custom styles for this template -->
-    <link href="about.css" rel="stylesheet">
-  </head>
-  <body>
-    
+    {% block body %}    
 <main>
   <h1 class="visually-hidden">About Educative</h1>
 
@@ -83,7 +63,12 @@
     <!-- <img class="d-block mx-auto mb-4" src="logo" alt="" width="72" height="57"> -->
     <h1 class="display-5 fw-bold">Wellcome to Educative!</h1>
     <div class="col-lg-6 mx-auto">
-      <p class="lead mb-4">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</p>
+      <p class="lead mb-4">
+We are thrilled to have you here and embark on a journey of knowledge, exploration, and inspiration together. Whether you are a tech enthusiast, a lifelong learner, or someone seeking to harness the power of technology, you've come to the right place.
+At Educative, we believe that technology has the potential to transform lives, shape industries, and drive positive change. Our mission is to provide you with a platform where you can expand your skills, stay updated with the latest trends, and connect with a vibrant community of like-minded individuals.
+Welcome aboard!
+The Educative Team
+      </p>
       <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
         <!-- <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Primary button</button>
         <button type="button" class="btn btn-outline-secondary btn-lg px-4">Secondary</button> -->
@@ -97,7 +82,9 @@
     <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
       <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
         <h1 class="display-4 fw-bold lh-1">CEO and Cofounder of Educative is Mr.</h1>
-        <p class="lead">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</p>
+        <p class="lead">
+          At Educative, we believe that technology has the potential to transform lives, shape industries, and drive positive change. Our mission is to provide you with a platform where you can expand your skills, stay updated with the latest trends, and connect with a vibrant community of like-minded individuals.
+        </p>
         <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
           <!-- <button type="button" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold">Primary</button>
           <button type="button" class="btn btn-outline-secondary btn-lg px-4">Default</button> -->
@@ -115,7 +102,10 @@
   <div class="px-4 pt-5 my-5 text-center border-bottom">
     <h1 class="display-4 fw-bold">Educative Start form 2017</h1>
     <div class="col-lg-6 mx-auto">
-      <p class="lead mb-4">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</p>
+      <p class="lead mb-4">
+        Explore our curated resources, ranging from interactive courses to insightful articles and practical guides. From web development and data science to cybersecurity and emerging technologies, we cover a wide array of topics to cater to your diverse interests and aspirations.
+        Engage in hands-on projects, collaborate with experts, and challenge yourself to reach new heights in your tech journey. 
+      </p>
       <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
         <!-- <button type="button" class="btn btn-primary btn-lg px-4 me-sm-3">Primary button</button>
           <button type="button" class="btn btn-outline-secondary btn-lg px-4">Secondary</button> -->
@@ -137,7 +127,10 @@
         </div>
         <div class="col-lg-6">
           <h1 class="display-5 fw-bold lh-1 mb-3">We are providing Quality content</h1>
-          <p class="lead">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</p>
+          <p class="lead">
+            Whether you're a beginner taking your first steps or an experienced professional seeking to expand your horizons, our platform is designed to empower and support you every step of the way.
+            Join us on this exciting adventure as we dive into the realms of technology, innovation, and creativity. Together, let's explore, learn, and unleash the full potential of technology to make a meaningful impact in our lives and the world around us.
+          </p>
           <div class="d-grid gap-2 d-md-flex justify-content-md-start">
             <!-- <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Primary</button>
             <button type="button" class="btn btn-outline-secondary btn-lg px-4">Default</button> -->
@@ -152,7 +145,9 @@
     <div class="py-5">
       <h1 class="display-5 fw-bold text-white">Thanking you!</h1>
       <div class="col-lg-6 mx-auto">
-        <p class="fs-5 mb-4">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</p>
+        <p class="fs-5 mb-4">
+          Thank you for being a part of Educative. We can't wait to witness your growth, celebrate your achievements, and inspire each other on this remarkable journey.
+        </p>
         <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
           <button type="button" class="btn btn-outline-info btn-lg px-4 me-sm-3 fw-bold">HOME</button>
           <!-- <button type="button" class="btn btn-outline-light btn-lg px-4">Secondary</button> -->
@@ -160,14 +155,5 @@
       </div>
     </div>
   </div>
-
 </main>
-
-
-    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
-    </script>
-      
-  </body>
-</html>
+{% endblock %} 
